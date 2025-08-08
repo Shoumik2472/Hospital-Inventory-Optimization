@@ -1,6 +1,6 @@
 # 🏥 Hospital Inventory Optimization
 
-This repository contains an **MSc project** that models and solves a **hospital inventory management problem** using **Operations Research techniques**.  
+This repository contains an **Project** that models and solves a **hospital inventory management problem** using **Operations Research techniques**.  
 It determines optimal ordering quantities and schedules for multiple medical items while respecting budget, storage, and safety stock constraints.
 
 ---
@@ -35,21 +35,21 @@ It determines optimal ordering quantities and schedules for multiple medical ite
 ## 📊 Model Formulation
 
 **Decision Variables**
-- \( x_{i,t} \): units of item *i* ordered in month *t*
-- \( I_{i,t} \): inventory of item *i* at the end of month *t*
-- \( y_{i,t} \): binary variable, 1 if an order is placed
+- $x_{i,t}$ : units of item $i$ ordered in month $t$
+- $I_{i,t}$ : inventory of item $i$ at the end of month $t$
+- $y_{i,t}$ : binary variable, 1 if an order is placed
 
 **Objective Function**
-\[
+$$
 \text{Minimise} \quad \sum_{i,t} c_i x_{i,t} + \sum_{i,t} S_i y_{i,t} + \sum_{i,t} h_i I_{i,t}
-\]
+$$
 
 **Constraints**
-- Inventory balance: \( I_{i,t} = I_{i,t-1} + x_{i,t} - d_{i,t} \)
-- Budget: \( \sum_i c_i x_{i,t} \le B_t \)
-- Storage: \( \sum_i s_i I_{i,t} \le \text{StorageCap} \)
-- Safety stock: \( I_{i,t} \ge \text{ROP}_i \)
-- Big-M order linking: \( x_{i,t} \le M_i y_{i,t} \)
+- **Inventory balance:** $I_{i,t} = I_{i,t-1} + x_{i,t} - d_{i,t}$
+- **Budget:** $\sum_i c_i x_{i,t} \le B_t$
+- **Storage:** $\sum_i s_i I_{i,t} \le \text{StorageCap}$
+- **Safety stock:** $I_{i,t} \ge \text{ROP}_i$
+- **Big-M order linking:** $x_{i,t} \le M_i y_{i,t}$
 
 ---
 
